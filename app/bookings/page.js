@@ -6,15 +6,15 @@ import React from 'react';
 const BookingsPage = () => {
     return (
         <>
-            <section class="mt-[100px]">
-                <div class="container">
+            <section className="mt-[100px]">
+                <div className="container">
                     <ProfileInfo />
                 </div>
             </section>
 
             <section>
-                <div class="container">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="container">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <PastBooking />
                         <UpcomingBooking />
                     </div>

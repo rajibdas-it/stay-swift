@@ -12,8 +12,8 @@ const HotelListPage = () => {
                     <Search fromList={true} />
                 </div>
             </section>
-            <section class="py-12">
-                <div class="container grid grid-cols-12">
+            <section className="py-12">
+                <div className="container grid grid-cols-12">
                     <Filter />
                     <HotelList />
                 </div>
