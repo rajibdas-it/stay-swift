@@ -14,4 +14,4 @@ const reviewSchema = new Schema({
 })
 
 
-export const reviews = mongoose.model.reviews ?? mongoose.model('reviews', reviewSchema)
+export const Reviews = mongoose.model.reviews ?? mongoose.model('reviews', reviewSchema)
