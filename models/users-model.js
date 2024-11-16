@@ -9,4 +9,4 @@ const userSchema = new Schema({
 })
 
 
-export const Users = mongoose.model.users ?? mongoose.model('users', userSchema)
+export const Users = mongoose.models.users ?? mongoose.model('users', userSchema)

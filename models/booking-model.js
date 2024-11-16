@@ -20,6 +20,6 @@ const bookingSchema = new Schema({
     }
 })
 
-export const Booking = mongoose.model.bookings ?? mongoose.model('bookings', bookingSchema)
+export const Booking = mongoose.models.bookings ?? mongoose.model('bookings', bookingSchema)
 
 

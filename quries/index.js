@@ -1,10 +1,10 @@
 import { replaceMongoIdInArray } from "@/utils/data-utils";
 
-const { Hotels } = require("@/models/hotel-model");
+import { Hotel } from "@/models/hotel-model";
 
 
 export async function getAllHotels() {
-    const hotels = await Hotels.find().lean()
+    const hotels = await Hotel.find().lean()
     return replaceMongoIdInArray(hotels)
 }
 
