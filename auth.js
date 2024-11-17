@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials"
 import mongoClientPromise from "./database/mongoClientPromise";
 import { Users } from "./models/users-model";
+import bcrypt from 'bcryptjs'
 
 
 export const {
@@ -28,7 +29,7 @@ export const {
                 try {
                     const user = await Users.findOne({ email: credentials?.email })
                     if (user) {
-                        const isMatched = user.email === credentials.email
+                        const isMatched = await bcrypt.compare(credentials.password, user.password)
                         if (isMatched) {
                             return user
                         } else {
