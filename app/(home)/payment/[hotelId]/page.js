@@ -1,9 +1,16 @@
+import { auth } from '@/auth';
 import PaymentForm from '@/components/payment/PaymentForm';
+import { redirect } from 'next/navigation';
 import React from 'react';
 
 const PaymentPage = async (params) => {
     const { hotelId } = await params
     console.log(hotelId);
+    const session = await auth()
+
+    if (!session) {
+        redirect('/login')
+    }
     return (
         <section class="container">
 
