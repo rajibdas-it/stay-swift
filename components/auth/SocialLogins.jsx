@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 
 const SocialLogins = () => {
-  const handleAuth = (e) => {
+  const handleAuth = (event) => {
     signIn("google", { callbackUrl: "http://localhost:3000/bookings" });
   };
   return (
