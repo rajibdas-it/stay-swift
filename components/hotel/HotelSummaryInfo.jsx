@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Ratings from "./Ratings";
+import Review from "./Review";
 
 const HotelSummaryInfo = ({ fromListPage, info }) => {
   return (
@@ -7,16 +9,16 @@ const HotelSummaryInfo = ({ fromListPage, info }) => {
         <h2
           className={fromListPage ? "font-bold text-lg" : "font-bold text-2xl"}
         >
-          {info.name}
+          {info?.name}
         </h2>
-        <p>📍 {info.city}</p>
+        <p>📍 {info?.city}</p>
         <div className="flex gap-2 items-center my-4">
-          <Ratings id={info.id} />
-          <span>232 Reviews</span>
+          <Ratings id={info?.id} />
+          <Review id={info?.id} />
         </div>
         <div>
           <span className="bg-yellow-300 p-1 rounded-">
-            {info.propertyCategory} Star Property
+            {info?.propertyCategory} Star Property
           </span>
         </div>
       </div>
@@ -27,7 +29,9 @@ const HotelSummaryInfo = ({ fromListPage, info }) => {
         </h2>
         <p className=" text-right">Per Night for 1 Rooms</p>
         {fromListPage ? (
-          <button className="btn-primary ">Details</button>
+          <Link href={`/hotels/${info?.id}`} className="btn-primary ">
+            Details
+          </Link>
         ) : (
           <button className="btn-primary ">Book</button>
         )}

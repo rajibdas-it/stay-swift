@@ -1,4 +1,4 @@
-import { replaceMongoIdInArray } from "@/utils/data-utils";
+import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
 
 import { Hotel } from "@/models/hotel-model";
 import { Ratings } from "@/models/ratings-model";
@@ -19,6 +19,12 @@ export async function getRatingForAHotel(hotelId) {
 export async function getReviewsForAHotel(hotelId) {
     const reviews = await Reviews.find({ hotelId: hotelId }).lean()
     return replaceMongoIdInArray(reviews)
+
+}
+
+export async function getHotelById(hotelId) {
+    const hotel = await Hotel.findById(hotelId).lean()
+    return replaceMongoIdInObject(hotel)
 
 }
 
