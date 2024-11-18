@@ -8,7 +8,10 @@ const HotelDetailsPage = async ({ params: { id }, searchParams: { checkin, check
     const hotel = await getHotelById(id, checkin, checkout)
     return (
         <>
-            <Summary info={hotel} />
+            <Summary
+                info={hotel}
+                checkin={checkin}
+                checkout={checkout} />
             <Gallery gallery={hotel.gallery} />
             <Overview hotelInfo={hotel} />
         </>

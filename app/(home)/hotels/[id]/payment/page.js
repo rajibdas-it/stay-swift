@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import React from 'react';
 
 const PaymentPage = async ({ params: { id }, searchParams: { checkin, checkout } }) => {
-    console.log(checkin);
+
     const session = await auth()
 
     if (!session) {

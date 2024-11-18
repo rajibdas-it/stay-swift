@@ -9,8 +9,6 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
     params = `?checkin=${checkin}&checkout=${checkout}`;
   }
 
-  console.log(params);
-
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
