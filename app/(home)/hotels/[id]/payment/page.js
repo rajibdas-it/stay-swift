@@ -1,5 +1,6 @@
 import { auth } from '@/auth';
 import PaymentForm from '@/components/payment/PaymentForm';
+import { getHotelById } from '@/database/quries';
 import { redirect } from 'next/navigation';
 import React from 'react';
 
@@ -10,6 +11,9 @@ const PaymentPage = async ({ params: { id }, searchParams: { checkin, checkout }
     if (!session) {
         redirect('/login')
     }
+
+    const loggedInUser = await getUserByEmail(session?.user?.name)
+    const hotelInfo = await getHotelById(id, checkin, checkout)
     return (
         <section class="container">
 
