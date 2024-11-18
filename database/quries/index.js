@@ -60,8 +60,16 @@ export async function getReviewsForAHotel(hotelId) {
 
 }
 
-export async function getHotelById(hotelId) {
+export async function getHotelById(hotelId, checkin, checkout) {
     const hotel = await Hotel.findById(hotelId).lean()
+    if (checkin && checkout) {
+        const found = await findBooking(hotel._id, checkin, checkout)
+        if (found) {
+            hotel['isBooked'] = true
+        } else {
+            hotel['isBooked'] = false
+        }
+    }
     return replaceMongoIdInObject(hotel)
 
 }
