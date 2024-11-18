@@ -4,6 +4,7 @@ import { Hotel } from "@/models/hotel-model";
 import { Ratings } from "@/models/ratings-model";
 import { Reviews } from "@/models/review-model";
 import { Booking } from "@/models/booking-model";
+import { Users } from "@/models/users-model";
 
 
 export async function getAllHotels(destination, checkin, checkout) {
@@ -74,3 +75,7 @@ export async function getHotelById(hotelId, checkin, checkout) {
 
 }
 
+export async function getUserByEmail(email) {
+    const users = await Users.find({ email: email })
+    return users
+}
