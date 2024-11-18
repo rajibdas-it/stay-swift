@@ -9,6 +9,8 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
     params = `?checkin=${checkin}&checkout=${checkout}`;
   }
 
+  console.log(params);
+
   return (
     <>
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
@@ -40,9 +42,12 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
             Details
           </Link>
         ) : (
-          <button className={info?.isBooked ? "btn-disabled" : "btn-primary"}>
+          <Link
+            href={info?.isBooked ? "#" : `/hotels/${info?.id}/payment${params}`}
+            className={info?.isBooked ? "btn-disabled" : "btn-primary"}
+          >
             Book
-          </button>
+          </Link>
         )}
       </div>
     </>
