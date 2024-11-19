@@ -4,8 +4,16 @@ import Filter from '@/components/search/Filter';
 import Search from '@/components/search/Search';
 import React from 'react';
 
+const refinedCategory = (category) => {
+    const decodedCategory = decodeURI(category)
+    if (decodedCategory === 'undefined') {
+        return ""
+    }
+    return decodedCategory
+}
+
 const HotelListPage = async ({ searchParams }) => {
-    const { destination, checkin, checkout } = await searchParams //ei way te korle error dey na
+    const { destination, checkin, checkout, category } = await searchParams //ei way te korle error dey na
     return (
         <>
             <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
@@ -23,7 +31,8 @@ const HotelListPage = async ({ searchParams }) => {
                     <HotelList
                         destination={destination}
                         checkin={checkin}
-                        checkout={checkout} />
+                        checkout={checkout}
+                        category={refinedCategory(category)} />
                 </div>
             </section>
 
