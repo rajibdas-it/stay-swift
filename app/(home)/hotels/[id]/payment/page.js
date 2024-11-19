@@ -13,7 +13,10 @@ const PaymentPage = async ({ params: { id }, searchParams: { checkin, checkout }
         redirect('/login')
     }
 
-    const loggedInUser = await getUserByEmail(session?.user?.name)
+
+
+    const loggedInUser = await getUserByEmail(session?.user?.email)
+    // console.log("from payment page", loggedInUser);
     const hotelInfo = await getHotelById(id, checkin, checkout)
     let cost = (hotelInfo?.highRate + hotelInfo?.lowRate) / 2
     const hasCheckInCheckOut = checkin && checkout

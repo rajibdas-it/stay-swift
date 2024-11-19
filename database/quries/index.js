@@ -76,6 +76,6 @@ export async function getHotelById(hotelId, checkin, checkout) {
 }
 
 export async function getUserByEmail(email) {
-    const users = await Users.find({ email: email })
-    return users
+    const user = await Users.findOne({ email: email }).lean()
+    return replaceMongoIdInObject(user)
 }
