@@ -7,20 +7,22 @@ const BookingCard = async ({ hotelId, checkin, checkout }) => {
   const days = getDayDifference(checkin, checkout);
   const totalCost = ((hotelInfo?.highRate + hotelInfo?.lowRate) / 2) * days;
   return (
-    <div className="flex justify-between items-center ">
-      <div>
-        <h3 className="text-xl font-semibold">{hotelInfo?.name}</h3>
-        <div className="text-sm text-gray-600 my-4">
-          <p>Check In: {checkin}</p>
-          <p>Check Out: {checkout}</p>
+    <div className="bg-[#ebf6e9] p-4 rounded-md">
+      <div className="flex justify-between items-center ">
+        <div>
+          <h3 className="text-xl font-semibold">{hotelInfo?.name}</h3>
+          <div className="text-sm text-gray-600 my-4">
+            <p>Check In: {checkin}</p>
+            <p>Check Out: {checkout}</p>
+          </div>
         </div>
-      </div>
 
-      <div>
-        <h3 className="text-xl font-semibold text-right">$ {totalCost}</h3>
-        <p className="text-sm text-gray-600">
-          {`${totalCost / days} per night x ${days} days`}
-        </p>
+        <div>
+          <h3 className="text-xl font-semibold text-right">$ {totalCost}</h3>
+          <p className="text-sm text-gray-600">
+            {`${totalCost / days} per night x ${days} days`}
+          </p>
+        </div>
       </div>
     </div>
   );
